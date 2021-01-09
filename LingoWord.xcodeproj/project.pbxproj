@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A1D22DB25ACE5820049ED4E /* LingoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */; };
+		3A1D22DC25ACE5820049ED4E /* LingoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */; };
+		3A7C000025A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */; };
+		3A7C000625A9C0F1008DC8D2 /* wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A7C000525A9C0F1008DC8D2 /* wordlist.txt */; };
+		3A7C000725A9C0F1008DC8D2 /* wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A7C000525A9C0F1008DC8D2 /* wordlist.txt */; };
+		3A7C000D25A9D940008DC8D2 /* LingoWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */; };
+		3A7C000E25A9D940008DC8D2 /* LingoWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */; };
+		3A7CFFE225A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFB625A9B968008DC8D2 /* LingoWord.xcdatamodeld */; };
+		3A7CFFE325A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFB625A9B968008DC8D2 /* LingoWord.xcdatamodeld */; };
+		3A7CFFE425A9B96B008DC8D2 /* LingoWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFB825A9B968008DC8D2 /* LingoWordApp.swift */; };
+		3A7CFFE525A9B96B008DC8D2 /* LingoWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFB825A9B968008DC8D2 /* LingoWordApp.swift */; };
+		3A7CFFEA25A9B96B008DC8D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */; };
+		3A7CFFEB25A9B96B008DC8D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */; };
+		3A7CFFFF25A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */; };
+		3AC44DAB25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
+		3AC44DAC25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoTextField.swift; sourceTree = "<group>"; };
+		3A7C000525A9C0F1008DC8D2 /* wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist.txt; sourceTree = "<group>"; };
+		3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordView.swift; sourceTree = "<group>"; };
+		3A7CFFB725A9B968008DC8D2 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		3A7CFFB825A9B968008DC8D2 /* LingoWordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordApp.swift; sourceTree = "<group>"; };
+		3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A7CFFC025A9B96B008DC8D2 /* LingoWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingoWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7CFFC325A9B96B008DC8D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A7CFFC825A9B96B008DC8D2 /* LingoWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingoWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7CFFCA25A9B96B008DC8D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A7CFFCB25A9B96B008DC8D2 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordSolver.swift; sourceTree = "<group>"; };
+		3AC44DAA25AB071B00934C46 /* LingoWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A7CFFBD25A9B96B008DC8D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A7CFFC525A9B96B008DC8D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A7CFFB025A9B968008DC8D2 = {
+			isa = PBXGroup;
+			children = (
+				3A7CFFB525A9B968008DC8D2 /* Shared */,
+				3A7CFFC225A9B96B008DC8D2 /* iOS */,
+				3A7CFFC925A9B96B008DC8D2 /* macOS */,
+				3A7CFFC125A9B96B008DC8D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A7CFFB525A9B968008DC8D2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3A7C000525A9C0F1008DC8D2 /* wordlist.txt */,
+				3A7CFFB825A9B968008DC8D2 /* LingoWordApp.swift */,
+				3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */,
+				3A7CFFB625A9B968008DC8D2 /* LingoWord.xcdatamodeld */,
+				3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */,
+				3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */,
+				3AC44DAA25AB071B00934C46 /* LingoWordController.swift */,
+				3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3A7CFFC125A9B96B008DC8D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CFFC025A9B96B008DC8D2 /* LingoWord.app */,
+				3A7CFFC825A9B96B008DC8D2 /* LingoWord.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A7CFFC225A9B96B008DC8D2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CFFC325A9B96B008DC8D2 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		3A7CFFC925A9B96B008DC8D2 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CFFCA25A9B96B008DC8D2 /* Info.plist */,
+				3A7CFFCB25A9B96B008DC8D2 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A7CFFBF25A9B96B008DC8D2 /* LingoWord (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A7CFFEE25A9B96B008DC8D2 /* Build configuration list for PBXNativeTarget "LingoWord (iOS)" */;
+			buildPhases = (
+				3A7CFFBC25A9B96B008DC8D2 /* Sources */,
+				3A7CFFBD25A9B96B008DC8D2 /* Frameworks */,
+				3A7CFFBE25A9B96B008DC8D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LingoWord (iOS)";
+			productName = "LingoWord (iOS)";
+			productReference = 3A7CFFC025A9B96B008DC8D2 /* LingoWord.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A7CFFC725A9B96B008DC8D2 /* LingoWord (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A7CFFF125A9B96B008DC8D2 /* Build configuration list for PBXNativeTarget "LingoWord (macOS)" */;
+			buildPhases = (
+				3A7CFFC425A9B96B008DC8D2 /* Sources */,
+				3A7CFFC525A9B96B008DC8D2 /* Frameworks */,
+				3A7CFFC625A9B96B008DC8D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LingoWord (macOS)";
+			productName = "LingoWord (macOS)";
+			productReference = 3A7CFFC825A9B96B008DC8D2 /* LingoWord.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A7CFFB125A9B968008DC8D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					3A7CFFBF25A9B96B008DC8D2 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					3A7CFFC725A9B96B008DC8D2 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 3A7CFFB425A9B968008DC8D2 /* Build configuration list for PBXProject "LingoWord" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A7CFFB025A9B968008DC8D2;
+			productRefGroup = 3A7CFFC125A9B96B008DC8D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A7CFFBF25A9B96B008DC8D2 /* LingoWord (iOS) */,
+				3A7CFFC725A9B96B008DC8D2 /* LingoWord (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A7CFFBE25A9B96B008DC8D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7C000625A9C0F1008DC8D2 /* wordlist.txt in Resources */,
+				3A7CFFEA25A9B96B008DC8D2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A7CFFC625A9B96B008DC8D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7C000725A9C0F1008DC8D2 /* wordlist.txt in Resources */,
+				3A7CFFEB25A9B96B008DC8D2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A7CFFBC25A9B96B008DC8D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7CFFE225A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */,
+				3A7C000D25A9D940008DC8D2 /* LingoWordView.swift in Sources */,
+				3A1D22DB25ACE5820049ED4E /* LingoTextField.swift in Sources */,
+				3A7CFFE425A9B96B008DC8D2 /* LingoWordApp.swift in Sources */,
+				3A7CFFFF25A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */,
+				3AC44DAB25AB071B00934C46 /* LingoWordController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A7CFFC425A9B96B008DC8D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7CFFE325A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */,
+				3A7C000E25A9D940008DC8D2 /* LingoWordView.swift in Sources */,
+				3A1D22DC25ACE5820049ED4E /* LingoTextField.swift in Sources */,
+				3A7CFFE525A9B96B008DC8D2 /* LingoWordApp.swift in Sources */,
+				3A7C000025A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */,
+				3AC44DAC25AB071B00934C46 /* LingoWordController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3A7CFFEC25A9B96B008DC8D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A7CFFED25A9B96B008DC8D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		3A7CFFEF25A9B96B008DC8D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G73PG97D2V;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.LingoWord;
+				PRODUCT_NAME = LingoWord;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A7CFFF025A9B96B008DC8D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G73PG97D2V;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.LingoWord;
+				PRODUCT_NAME = LingoWord;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A7CFFF225A9B96B008DC8D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G73PG97D2V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.LingoWord;
+				PRODUCT_NAME = LingoWord;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3A7CFFF325A9B96B008DC8D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G73PG97D2V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.LingoWord;
+				PRODUCT_NAME = LingoWord;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A7CFFB425A9B968008DC8D2 /* Build configuration list for PBXProject "LingoWord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A7CFFEC25A9B96B008DC8D2 /* Debug */,
+				3A7CFFED25A9B96B008DC8D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A7CFFEE25A9B96B008DC8D2 /* Build configuration list for PBXNativeTarget "LingoWord (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A7CFFEF25A9B96B008DC8D2 /* Debug */,
+				3A7CFFF025A9B96B008DC8D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A7CFFF125A9B96B008DC8D2 /* Build configuration list for PBXNativeTarget "LingoWord (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A7CFFF225A9B96B008DC8D2 /* Debug */,
+				3A7CFFF325A9B96B008DC8D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A7CFFB625A9B968008DC8D2 /* LingoWord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A7CFFB725A9B968008DC8D2 /* Shared.xcdatamodel */,
+			);
+			currentVersion = 3A7CFFB725A9B968008DC8D2 /* Shared.xcdatamodel */;
+			path = LingoWord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3A7CFFB125A9B968008DC8D2 /* Project object */;
+}
