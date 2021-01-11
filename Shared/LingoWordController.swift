@@ -56,7 +56,7 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
     private func nextId() -> Int {
         return (guess.last?.id ?? -1) + 1
     }
-
+    
     private func lastCharacter() -> Character? {
         switch guess.last {
         case .unplaced(_, let character):
@@ -68,6 +68,12 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
     
     func onCharacterEntered(_ character: Character) {
         addLetter(character)
+    }
+    
+    func onBackspacePressed() {
+        if guess.count > 0 {
+            _ = guess.removeLast()
+        }
     }
 }
 
