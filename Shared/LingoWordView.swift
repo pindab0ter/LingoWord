@@ -16,13 +16,6 @@ struct LingoWordView: View {
     private var entry = ""
     
     var body: some View {
-
-        let binding = Binding<String>(
-            get: { self.entry },
-            set: { (value: String) in
-                controller.addLetter(value.first)
-            })
-
         VStack {
             HStack {
                 ForEach(controller.guess) { letter in
@@ -34,7 +27,8 @@ struct LingoWordView: View {
                         RoundedRectangle(cornerRadius: radius(for: geometry.size))
                             .fill(Color.blue)
                             .shadow(radius: radius(for: geometry.size))
-                        TextField(".", text: binding)
+                        LingoTextField(".")
+                            .subscribe(subscriber: controller)
                             .aspectRatio(1, contentMode: .fit)
                             .foregroundColor(.white)
                             .shadow(radius: radius(for: geometry.size))
