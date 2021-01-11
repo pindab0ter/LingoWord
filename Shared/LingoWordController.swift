@@ -13,34 +13,14 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
     
     @Published
     var guess: Guess = []
-    /*var guess = (0..<11).map { index in
-        Letter.unknown(index)
-    }*/
-    /*var guess: Guess = [
-        .unplaced(0, "i"),
-        .unplaced(1, "k"),
-        .unplaced(2, "o"),
-        .unplaced(3, "s"),
-        .placed(4, "t", 4), // TODO: Remove redundant "position"
-        .unplaced(5, "f"),
-        .placed(6, "b", 6),
-        .unplaced(7, "a"),
-        .unplaced(8, "e"),
-        .unplaced(9, "r"),
-        .unplaced(10, "r")
-    ] {
-        didSet {
-            answers = solver.solve(guess)
-        }
-    }*/
     
     @Published
     var answers: [Answer] = []
     
-    func addLetter(_ newCharacter: Character?) {
+    func addLetter(_ newCharacter: Character) {
         var newLetter: Letter
         
-        if let character = newCharacter?.lowercased().first {
+        if let character = newCharacter.lowercased().first {
             if lastCharacter() == "i" && character == "j" {
                 _ = guess.removeLast()
                 newLetter = Letter.unplaced(nextId(), "ĳ")
@@ -66,8 +46,10 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
         }
     }
     
-    func onCharacterEntered(_ character: Character) {
-        addLetter(character)
+    func onCharacterEntered(_ character: Character?) {
+        if character?.isLetter == true {
+            addLetter(character!)
+        }
     }
     
     func onBackspacePressed() {

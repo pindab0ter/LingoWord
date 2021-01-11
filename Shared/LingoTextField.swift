@@ -23,7 +23,7 @@ struct LingoTextField : UIViewRepresentable {
             if string == "" {
                 notifyBackspacePressed()
             } else {
-                notifyCharacterEntered(character: string.first ?? "?")
+                notifyCharacterEntered(character: string.first)
             }
             textField.text = "." // Enable backspace detection
             return false
@@ -31,7 +31,7 @@ struct LingoTextField : UIViewRepresentable {
         
         var subscribers: [LingoTextFieldSubscriber] = []
         
-        func notifyCharacterEntered(character: Character) {
+        func notifyCharacterEntered(character: Character?) {
             subscribers.forEach { subscriber in
                 subscriber.onCharacterEntered(character)
             }
@@ -68,6 +68,6 @@ struct LingoTextField : UIViewRepresentable {
 }
 
 protocol LingoTextFieldSubscriber {
-    func onCharacterEntered(_ character: Character)
+    func onCharacterEntered(_ character: Character?)
     func onBackspacePressed()
 }
