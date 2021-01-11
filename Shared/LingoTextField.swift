@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct LingoTextField : UIViewRepresentable {
-    
-    init(_ placeHolder: String) {
-        self.placeHolder = placeHolder
-    }
-    
-    var placeHolder: String
+
     private var coordinator = Coordinator()
     
     class Coordinator: NSObject, UITextFieldDelegate {

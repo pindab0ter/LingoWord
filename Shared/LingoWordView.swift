@@ -27,12 +27,13 @@ struct LingoWordView: View {
                         RoundedRectangle(cornerRadius: radius(for: geometry.size))
                             .fill(Color.blue)
                             .shadow(radius: radius(for: geometry.size))
-                        LingoTextField(".")
+                        LingoTextField()
                             .subscribe(subscriber: controller)
                             .aspectRatio(1, contentMode: .fit)
                             .foregroundColor(.white)
                             .shadow(radius: radius(for: geometry.size))
-                            .font(Font.system(size: fontSize(for: geometry.size), weight: .bold, design: .default))
+                        LetterView(letter: .incorrect(0, "."))
+                            .aspectRatio(1, contentMode: .fit)
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
@@ -64,13 +65,11 @@ struct LetterView: View {
                 case .unknown:
                     Text(".")
                         .shadow(radius: radius(for: geometry.size))
-                    
                 case .unplaced(_, let character):
                     Circle()
                         .fill(Color.yellow)
                     Text(String(character).uppercased())
                         .shadow(radius: radius(for: geometry.size))
-                    
                 case .placed(_, let character, _):
                     RoundedRectangle(cornerRadius: radius(for: geometry.size))
                         .fill(Color.red)
