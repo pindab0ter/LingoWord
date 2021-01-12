@@ -38,19 +38,19 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
         word.append(newLetter)
     }
     
-    private func nextId() -> Int {
-        return (word.last?.id ?? -1) + 1
-    }
-    
-    private func lastCharacter() -> Character? {
-        switch word.last {
-        case .unplaced(_, let character):
-            return character
+    func toggleLetter(letter: Letter) {
+        switch letter {
+        case .unplaced(let id, let character):
+            if let index = word.firstIndex(where: { $0.id == letter.id }) {
+                word[index] = .placed(id, character, index)
+            }
+        case .placed(let id, let character, let index):
+            word[index] = .unplaced(id, character)
         default:
-            return nil
+            break
         }
     }
-    
+
     func onCharacterEntered(_ character: Character?) {
         if character?.isLetter == true {
             addLetter(character!)
@@ -69,6 +69,20 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
         showInput = !shouldRelinquishFirstResponder
         return shouldRelinquishFirstResponder
     }
+
+    private func nextId() -> Int {
+        return (word.last?.id ?? -1) + 1
+    }
+    
+    private func lastCharacter() -> Character? {
+        switch word.last {
+        case .unplaced(_, let character):
+            return character
+        default:
+            return nil
+        }
+    }
+    
 }
 
 typealias Answer = String

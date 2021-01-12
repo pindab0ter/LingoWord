@@ -19,6 +19,7 @@ struct LingoWordView: View {
                 ForEach(controller.word) { letter in
                     LetterView(letter: letter)
                         .aspectRatio(1, contentMode: .fit)
+                        .onTapGesture { controller.toggleLetter(letter: letter) }
                 }
                 if controller.showInput {
                     GeometryReader { geometry in
