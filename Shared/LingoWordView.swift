@@ -28,14 +28,14 @@ struct LingoWordView: View {
                     }
                     if controller.word.count == 0 {
                         GeometryReader { geometry in
-                            LetterView(letter: .incorrect(0, "."))
+                            LetterView(letter: Letter(id: 0, status: .unknown))
                         }
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
+                .animation(.easeOut)
                 .padding()
-                Divider()
-                VStack {
+                List {
                     if LingoWordSolver.allowedWordLengths.contains(controller.word.count) {
                         if controller.answers.count > 0 {
                             ForEach(controller.answers) { answer in
@@ -65,24 +65,17 @@ struct LetterView: View {
                 RoundedRectangle(cornerRadius: radius(for: geometry.size))
                     .fill(Color.blue)
                     .shadow(radius: radius(for: geometry.size))
-                switch letter {
-                case .unknown:
-                    Text(".")
-                        .shadow(radius: radius(for: geometry.size))
-                case .unplaced(_, let character):
+                
+                if letter.status == .unplaced {
                     Circle()
                         .fill(Color.yellow)
-                    Text(String(character).uppercased())
-                        .shadow(radius: radius(for: geometry.size))
-                case .placed(_, let character):
+                } else if letter.status == .placed {
                     RoundedRectangle(cornerRadius: radius(for: geometry.size))
                         .fill(Color.red)
-                    Text(String(character).uppercased())
-                        .shadow(radius: radius(for: geometry.size))
-                case .incorrect(_, let character):
-                    Text(String(character).uppercased())
-                        .shadow(radius: radius(for: geometry.size))
                 }
+
+                Text(String(letter.character?.uppercased() ?? "."))
+                    .shadow(radius: radius(for: geometry.size))
             }
             .foregroundColor(.white)
             .font(Font.system(size: fontSize(for: geometry.size), weight: .bold, design: .default))

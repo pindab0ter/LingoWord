@@ -30,7 +30,7 @@ struct LingoWordSolver {
                         && word.validLetters.characters.allAppearOnce(in: Array(candidate))
                         && word.placedLetters.allSatisfy { placedLetter in
                             if let index = word.firstIndex(where: { letter in letter.id == placedLetter.id }) {
-                                return candidate[candidate.index(candidate.startIndex, offsetBy: index)] == placedLetter.character!
+                                return candidate[candidate.index(candidate.startIndex, offsetBy: index)] == placedLetter.character
                             } else {
                                 return false
                             }
@@ -42,35 +42,13 @@ struct LingoWordSolver {
     }
 }
 
-enum Letter: Identifiable {
-    case placed(Int, Character)
-    case unplaced(Int, Character)
-    case incorrect(Int, Character)
-    case unknown(Int)
+struct Letter: Identifiable {
+    var id: Int
+    var status: Status
+    var character: Character? = nil
     
-    var id: Int {
-        switch self {
-        case .placed(let id, _):
-            return id
-        case .unplaced(let id, _):
-            return id
-        case .incorrect(let id, _):
-            return id
-        case .unknown(let id):
-            return id
-        }
-    }
-    var character: Character? {
-        switch self {
-        case .placed(_, let character):
-            return character
-        case .unplaced(_, let character):
-            return character
-        case .incorrect(_, let character):
-            return character
-        case .unknown(_):
-            return nil
-        }
+    enum Status {
+        case placed, unplaced, incorrect, unknown
     }
 }
 
@@ -79,32 +57,17 @@ typealias PlacedLetter = (Character, Int)
 extension Array where Element == Letter {
     var placedLetters: [Letter] {
         return compactMap { letter in
-            switch letter {
-            case .placed:
-                return letter
-            default:
-                return nil
-            }
+            letter.status == .placed ? letter : nil
         }
     }
     var unplacedLetters: [Letter] {
         return compactMap { letter in
-            switch letter {
-            case .unplaced:
-                return letter
-            default:
-                return nil
-            }
+            letter.status == .unplaced ? letter : nil
         }
     }
     var incorrectLetters: [Letter] {
         return compactMap { letter in
-            switch letter {
-            case .incorrect:
-                return letter
-            default:
-                return nil
-            }
+            letter.status == .incorrect ? letter : nil
         }
     }
     var validLetters: [Letter] {

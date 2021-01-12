@@ -25,28 +25,29 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     var showInput: Bool = true
     
     func addLetter(_ newCharacter: Character) {
-        var newLetter: Letter
-        
-        if let character = newCharacter.lowercased().first {
-            if lastCharacter() == "i" && character == "j" {
-                _ = word.removeLast()
-                newLetter = Letter.unplaced(nextId(), "ĳ")
-            } else {
-                newLetter = Letter.unplaced((word.last?.id ?? -1) + 1 , character)
-            }
-        } else {
-            newLetter = Letter.unknown((word.last?.id ?? -1) + 1)
+        guard let character = newCharacter.lowercased().first else {
+            return
         }
-        word.append(newLetter)
+
+        if word.last?.character == "i" && character == "j" {
+            _ = word.removeLast()
+            word.append(Letter(id: nextId(), status: .unplaced, character: "ĳ"))
+        } else if character == "." || character == " " {
+            word.append(Letter(id: nextId(), status: .unknown))
+        } else {
+            word.append(Letter(id: nextId(), status: .unplaced, character: character))
+        }
     }
     
     func toggleLetter(letter: Letter) {
         if let index = word.firstIndex(where: { $0.id == letter.id }) {
-            switch letter {
-            case .unplaced(let id, let character):
-                    word[index] = .placed(id, character)
-            case .placed(let id, let character):
-                    word[index] = .unplaced(id, character)
+            switch letter.status {
+            case .unplaced:
+                word[index].status = .placed
+            case .placed:
+                word[index].status = .incorrect
+            case .incorrect:
+                word[index].status = .unplaced
             default:
                 break
             }
@@ -54,7 +55,7 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     }
 
     func onCharacterEntered(_ character: Character?) {
-        if character?.isLetter == true {
+        if character?.isLetter == true || character == "." || character == " " {
             addLetter(character!)
         }
     }
@@ -68,16 +69,6 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     private func nextId() -> Int {
         return (word.last?.id ?? -1) + 1
     }
-    
-    private func lastCharacter() -> Character? {
-        switch word.last {
-        case .unplaced(_, let character):
-            return character
-        default:
-            return nil
-        }
-    }
-    
 }
 
 typealias Answer = String
