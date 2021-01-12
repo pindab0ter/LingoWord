@@ -74,7 +74,7 @@ struct LetterView: View {
                         .fill(Color.yellow)
                     Text(String(character).uppercased())
                         .shadow(radius: radius(for: geometry.size))
-                case .placed(_, let character, _):
+                case .placed(_, let character):
                     RoundedRectangle(cornerRadius: radius(for: geometry.size))
                         .fill(Color.red)
                     Text(String(character).uppercased())

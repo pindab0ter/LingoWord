@@ -12,7 +12,7 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     private let solver = LingoWordSolver()
     
     @Published
-    var word: Word = [] {
+    var word: [Letter] = [] {
         didSet {
             answers = solver.solve(word)
         }
@@ -41,15 +41,15 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     }
     
     func toggleLetter(letter: Letter) {
-        switch letter {
-        case .unplaced(let id, let character):
-            if let index = word.firstIndex(where: { $0.id == letter.id }) {
-                word[index] = .placed(id, character, index)
+        if let index = word.firstIndex(where: { $0.id == letter.id }) {
+            switch letter {
+            case .unplaced(let id, let character):
+                    word[index] = .placed(id, character)
+            case .placed(let id, let character):
+                    word[index] = .unplaced(id, character)
+            default:
+                break
             }
-        case .placed(let id, let character, let index):
-            word[index] = .unplaced(id, character)
-        default:
-            break
         }
     }
 
