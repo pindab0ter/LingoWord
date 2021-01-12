@@ -12,6 +12,7 @@ struct LingoTextField : UIViewRepresentable {
     private var coordinator = Coordinator()
     
     class Coordinator: NSObject, UITextFieldDelegate {
+        var subscribers: [LingoTextFieldSubscriber] = []
         var becameFirstResponder = false
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -24,7 +25,10 @@ struct LingoTextField : UIViewRepresentable {
             return false
         }
         
-        var subscribers: [LingoTextFieldSubscriber] = []
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            becameFirstResponder = false
+            return textField.resignFirstResponder()
+        }
         
         func notifyCharacterEntered(character: Character?) {
             subscribers.forEach { subscriber in
@@ -50,6 +54,8 @@ struct LingoTextField : UIViewRepresentable {
     
     func makeUIView(context: Context) -> some UIView {
         let textField = UITextField()
+        textField.returnKeyType = .done
+        textField.autocorrectionType = .no
         textField.delegate = context.coordinator
         return textField
     }
