@@ -25,6 +25,7 @@ struct LingoWordView: View {
                         LetterView(letter: .incorrect(0, "."))
                         LingoTextField()
                             .assign(delegate: controller)
+                            .opacity(0)
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
