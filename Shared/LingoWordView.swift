@@ -12,8 +12,6 @@ import SwiftUI
 struct LingoWordView: View {
     @ObservedObject
     var controller: LingoWordController
-    @State
-    private var entry = ""
     
     var body: some View {
         VStack {
@@ -24,16 +22,9 @@ struct LingoWordView: View {
                 }
                 GeometryReader { geometry in
                     ZStack {
-                        RoundedRectangle(cornerRadius: radius(for: geometry.size))
-                            .fill(Color.blue)
-                            .shadow(radius: radius(for: geometry.size))
+                        LetterView(letter: .incorrect(0, "."))
                         LingoTextField()
                             .subscribe(subscriber: controller)
-                            .aspectRatio(1, contentMode: .fit)
-                            .foregroundColor(.white)
-                            .shadow(radius: radius(for: geometry.size))
-                        LetterView(letter: .incorrect(0, "."))
-                            .aspectRatio(1, contentMode: .fit)
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
