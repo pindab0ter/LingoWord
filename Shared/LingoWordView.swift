@@ -14,42 +14,43 @@ struct LingoWordView: View {
     var controller: LingoWordController
     
     var body: some View {
-        VStack {
-            HStack {
-                ForEach(controller.word) { letter in
-                    LetterView(letter: letter)
-                        .aspectRatio(1, contentMode: .fit)
-                        .onTapGesture { controller.toggleLetter(letter: letter) }
-                }
-                if controller.showInput {
-                    GeometryReader { geometry in
-                        ZStack {
-                            LetterView(letter: .incorrect(0, "."))
-                            LingoTextField()
-                                .assign(delegate: controller)
-                                .opacity(0)
-                        }
+        ZStack {
+            LingoTextField()
+                .assign(delegate: controller)
+                .opacity(0)
+            
+            VStack {
+                HStack {
+                    ForEach(controller.word) { letter in
+                        LetterView(letter: letter)
+                            .aspectRatio(1, contentMode: .fit)
+                            .onTapGesture { controller.toggleLetter(letter: letter) }
                     }
-                    .aspectRatio(1, contentMode: .fit)
+                    if controller.word.count == 0 {
+                        GeometryReader { geometry in
+                            LetterView(letter: .incorrect(0, "."))
+                        }
+                        .aspectRatio(1, contentMode: .fit)
+                    }
+                }
+                .padding()
+                Divider()
+                VStack {
+                    if LingoWordSolver.allowedWordLengths.contains(controller.word.count) {
+                        if controller.answers.count > 0 {
+                            ForEach(controller.answers) { answer in
+                                Text(answer.uppercased())
+                            }
+                        } else {
+                            Text("No answers found.")
+                        }
+                    } else {
+                        Text("Words must be 5, 6, 7, 11, 12 or 13 characters, currently \(controller.word.count).")
+                    }
                 }
             }
             .padding()
-            Divider()
-            VStack {
-                if LingoWordSolver.allowedWordLengths.contains(controller.word.count) {
-                    if controller.answers.count > 0 {
-                        ForEach(controller.answers) { answer in
-                            Text(answer.uppercased())
-                        }
-                    } else {
-                        Text("No answers found.")
-                    }
-                } else {
-                    Text("Words must be 5, 6, 7, 11, 12 or 13 characters, currently \(controller.word.count).")
-                }
-            }
         }
-        .padding()
     }
 }
 

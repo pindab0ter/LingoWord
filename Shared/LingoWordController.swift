@@ -64,13 +64,6 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
             _ = word.removeLast()
         }
     }
-    
-    func shouldRelinquishFirstResponder() -> Bool {
-        // TODO: Show warning/alert about not meeting requirements
-        let shouldRelinquishFirstResponder = LingoWordSolver.allowedWordLengths.contains(word.count)
-        showInput = !shouldRelinquishFirstResponder
-        return shouldRelinquishFirstResponder
-    }
 
     private func nextId() -> Int {
         return (word.last?.id ?? -1) + 1

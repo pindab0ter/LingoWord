@@ -10,7 +10,6 @@ import Foundation
 struct LingoWordSolver {
     static let allowedWordLengths = [5, 6, 7, 11, 12, 13]
     
-    // TODO: Load each word length in separate array/map entry
     private let candidateLists: [Int: [String]]
     
     init() {

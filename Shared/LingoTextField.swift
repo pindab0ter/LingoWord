@@ -25,16 +25,6 @@ struct LingoTextField : UIViewRepresentable {
             return false
         }
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            let relinquishFirstResponder = delegate?.shouldRelinquishFirstResponder() == true
-            becameFirstResponder = relinquishFirstResponder
-            if relinquishFirstResponder {
-                return textField.resignFirstResponder()
-            } else {
-                return false
-            }
-        }
-        
         func notifyCharacterEntered(character: Character?) {
             delegate?.onCharacterEntered(character)
         }
@@ -72,5 +62,4 @@ struct LingoTextField : UIViewRepresentable {
 protocol LingoTextFieldDelegate {
     func onCharacterEntered(_ character: Character?)
     func onBackspacePressed()
-    func shouldRelinquishFirstResponder() -> Bool
 }
