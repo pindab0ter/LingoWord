@@ -19,6 +19,9 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     @Published
     var answers: [Answer] = []
     
+    @Published
+    var showInput: Bool = true
+    
     func addLetter(_ newCharacter: Character) {
         var newLetter: Letter
         
@@ -62,7 +65,9 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     
     func shouldRelinquishFirstResponder() -> Bool {
         // TODO: Show warning/alert about not meeting requirements
-        word.count >= minimumWordLength
+        let shouldRelinquishFirstResponder = word.count >= minimumWordLength
+        showInput = !shouldRelinquishFirstResponder
+        return shouldRelinquishFirstResponder
     }
 }
 

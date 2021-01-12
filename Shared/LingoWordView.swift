@@ -20,15 +20,17 @@ struct LingoWordView: View {
                     LetterView(letter: letter)
                         .aspectRatio(1, contentMode: .fit)
                 }
-                GeometryReader { geometry in
-                    ZStack {
-                        LetterView(letter: .incorrect(0, "."))
-                        LingoTextField()
-                            .assign(delegate: controller)
-                            .opacity(0)
+                if controller.showInput {
+                    GeometryReader { geometry in
+                        ZStack {
+                            LetterView(letter: .incorrect(0, "."))
+                            LingoTextField()
+                                .assign(delegate: controller)
+                                .opacity(0)
+                        }
                     }
+                    .aspectRatio(1, contentMode: .fit)
                 }
-                .aspectRatio(1, contentMode: .fit)
             }
             .padding()
             Spacer()
