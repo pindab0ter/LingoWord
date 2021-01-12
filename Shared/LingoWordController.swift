@@ -7,12 +7,14 @@
 
 import Foundation
 
-class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
+class LingoWordController : ObservableObject, LingoTextFieldDelegate {
+
+    private let minimumWordLength = 5
     
     private let solver = LingoWordSolver()
     
     @Published
-    var guess: Guess = []
+    var word: Word = []
     
     @Published
     var answers: [Answer] = []
@@ -22,23 +24,23 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
         
         if let character = newCharacter.lowercased().first {
             if lastCharacter() == "i" && character == "j" {
-                _ = guess.removeLast()
+                _ = word.removeLast()
                 newLetter = Letter.unplaced(nextId(), "ĳ")
             } else {
-                newLetter = Letter.unplaced((guess.last?.id ?? -1) + 1 , character)
+                newLetter = Letter.unplaced((word.last?.id ?? -1) + 1 , character)
             }
         } else {
-            newLetter = Letter.unknown((guess.last?.id ?? -1) + 1)
+            newLetter = Letter.unknown((word.last?.id ?? -1) + 1)
         }
-        guess.append(newLetter)
+        word.append(newLetter)
     }
     
     private func nextId() -> Int {
-        return (guess.last?.id ?? -1) + 1
+        return (word.last?.id ?? -1) + 1
     }
     
     private func lastCharacter() -> Character? {
-        switch guess.last {
+        switch word.last {
         case .unplaced(_, let character):
             return character
         default:
@@ -53,9 +55,14 @@ class LingoWordController : ObservableObject, LingoTextFieldSubscriber {
     }
     
     func onBackspacePressed() {
-        if guess.count > 0 {
-            _ = guess.removeLast()
+        if word.count > 0 {
+            _ = word.removeLast()
         }
+    }
+    
+    func shouldRelinquishFirstResponder() -> Bool {
+        // TODO: Show warning/alert about not meeting requirements
+        word.count >= minimumWordLength
     }
 }
 

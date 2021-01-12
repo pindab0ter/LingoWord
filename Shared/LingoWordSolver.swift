@@ -9,22 +9,22 @@ import Foundation
 
 struct LingoWordSolver {
     // TODO: Load each word length in separate array/map entry
-    private let words: [String]
+    private let candidates: [String]
     
     init() {
         let fileName = Bundle.main.path(forResource: "wordlist", ofType: "txt")
         let contents = try! String(contentsOfFile: fileName!, encoding: String.Encoding.utf8)
-        words = contents.components(separatedBy: "\n")
+        candidates = contents.components(separatedBy: "\n")
     }
     
-    func solve(_ guess: Guess) -> [String] {
-        words.filter { word in
+    func solve(_ word: Word) -> [String] {
+        candidates.filter { candidate in
             // TODO: Prevent reusing letters
-            word.count == guess.count
-                && guess.incorrectLetters.allSatisfy { incorrectLetter in !word.contains(incorrectLetter) }
-                && guess.unplacedLetters.allSatisfy { unplacedLetter in word.contains(unplacedLetter) }
-                && guess.placedLetters.allSatisfy { (letter, index) in
-                    word[word.index(word.startIndex, offsetBy: index)] == letter
+            candidate.count == word.count
+                && word.incorrectLetters.allSatisfy { incorrectLetter in !candidate.contains(incorrectLetter) }
+                && word.unplacedLetters.allSatisfy { unplacedLetter in candidate.contains(unplacedLetter) }
+                && word.placedLetters.allSatisfy { (letter, index) in
+                    candidate[candidate.index(candidate.startIndex, offsetBy: index)] == letter
                 }
         }
     }
@@ -50,10 +50,10 @@ enum Letter: Identifiable {
     }
 }
 
-typealias Guess = [Letter]
+typealias Word = [Letter]
 typealias PlacedLetter = (Character, Int)
 
-extension Guess {
+extension Word {
     var placedLetters: [PlacedLetter] {
         return compactMap { letter in
             switch letter {

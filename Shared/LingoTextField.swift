@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct LingoTextField : UIViewRepresentable {
-
+    
     private var coordinator = Coordinator()
     
     class Coordinator: NSObject, UITextFieldDelegate {
-        var subscribers: [LingoTextFieldSubscriber] = []
+        var delegate: LingoTextFieldDelegate? = nil
         var becameFirstResponder = false
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -26,25 +26,26 @@ struct LingoTextField : UIViewRepresentable {
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            becameFirstResponder = false
-            return textField.resignFirstResponder()
+            let relinquishFirstResponder = delegate?.shouldRelinquishFirstResponder() == true
+            becameFirstResponder = relinquishFirstResponder
+            if relinquishFirstResponder {
+                return textField.resignFirstResponder()
+            } else {
+                return false
+            }
         }
         
         func notifyCharacterEntered(character: Character?) {
-            subscribers.forEach { subscriber in
-                subscriber.onCharacterEntered(character)
-            }
+            delegate?.onCharacterEntered(character)
         }
         
         func notifyBackspacePressed() {
-            subscribers.forEach { subscriber in
-                subscriber.onBackspacePressed()
-            }
+            delegate?.onBackspacePressed()
         }
     }
     
-    func subscribe(subscriber: LingoTextFieldSubscriber) -> LingoTextField {
-        coordinator.subscribers.append(subscriber)
+    func assign(delegate: LingoTextFieldDelegate) -> LingoTextField {
+        coordinator.delegate = delegate
         return self
     }
     
@@ -68,7 +69,8 @@ struct LingoTextField : UIViewRepresentable {
     }
 }
 
-protocol LingoTextFieldSubscriber {
+protocol LingoTextFieldDelegate {
     func onCharacterEntered(_ character: Character?)
     func onBackspacePressed()
+    func shouldRelinquishFirstResponder() -> Bool
 }

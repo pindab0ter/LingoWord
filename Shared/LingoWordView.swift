@@ -16,7 +16,7 @@ struct LingoWordView: View {
     var body: some View {
         VStack {
             HStack {
-                ForEach(controller.guess) { letter in
+                ForEach(controller.word) { letter in
                     LetterView(letter: letter)
                         .aspectRatio(1, contentMode: .fit)
                 }
@@ -24,7 +24,7 @@ struct LingoWordView: View {
                     ZStack {
                         LetterView(letter: .incorrect(0, "."))
                         LingoTextField()
-                            .subscribe(subscriber: controller)
+                            .assign(delegate: controller)
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
