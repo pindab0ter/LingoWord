@@ -38,7 +38,7 @@ struct LingoWordView: View {
             VStack {
                 if controller.answers.count > 0 {
                     ForEach(controller.answers) { answer in
-                        Text(answer)
+                        Text(answer.uppercased())
                     }
                 } else {
                     Text("No answers found…")

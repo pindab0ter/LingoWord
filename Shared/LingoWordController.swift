@@ -9,12 +9,14 @@ import Foundation
 
 class LingoWordController : ObservableObject, LingoTextFieldDelegate {
 
-    private let minimumWordLength = 5
-    
     private let solver = LingoWordSolver()
     
     @Published
-    var word: Word = []
+    var word: Word = [] {
+        didSet {
+            answers = solver.solve(word)
+        }
+    }
     
     @Published
     var answers: [Answer] = []
@@ -65,7 +67,7 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     
     func shouldRelinquishFirstResponder() -> Bool {
         // TODO: Show warning/alert about not meeting requirements
-        let shouldRelinquishFirstResponder = word.count >= minimumWordLength
+        let shouldRelinquishFirstResponder = word.count >= solver.minimumWordLength && word.count <= solver.maximumWordLength
         showInput = !shouldRelinquishFirstResponder
         return shouldRelinquishFirstResponder
     }
