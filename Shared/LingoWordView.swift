@@ -34,10 +34,14 @@ struct LingoWordView: View {
                 }
             }
             .padding()
-            Spacer()
+            Divider()
             VStack {
-                ForEach(controller.answers) { answer in
-                    Text(answer)
+                if controller.answers.count > 0 {
+                    ForEach(controller.answers) { answer in
+                        Text(answer)
+                    }
+                } else {
+                    Text("No answers found…")
                 }
             }
         }
