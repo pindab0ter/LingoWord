@@ -67,7 +67,7 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     
     func shouldRelinquishFirstResponder() -> Bool {
         // TODO: Show warning/alert about not meeting requirements
-        let shouldRelinquishFirstResponder = word.count >= solver.minimumWordLength && word.count <= solver.maximumWordLength
+        let shouldRelinquishFirstResponder = LingoWordSolver.allowedWordLengths.contains(word.count)
         showInput = !shouldRelinquishFirstResponder
         return shouldRelinquishFirstResponder
     }

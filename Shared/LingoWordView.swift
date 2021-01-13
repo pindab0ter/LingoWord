@@ -36,12 +36,16 @@ struct LingoWordView: View {
             .padding()
             Divider()
             VStack {
-                if controller.answers.count > 0 {
-                    ForEach(controller.answers) { answer in
-                        Text(answer.uppercased())
+                if LingoWordSolver.allowedWordLengths.contains(controller.word.count) {
+                    if controller.answers.count > 0 {
+                        ForEach(controller.answers) { answer in
+                            Text(answer.uppercased())
+                        }
+                    } else {
+                        Text("No answers found.")
                     }
                 } else {
-                    Text("No answers found…")
+                    Text("Words must be 5, 6, 7, 11, 12 or 13 characters, currently \(controller.word.count).")
                 }
             }
         }

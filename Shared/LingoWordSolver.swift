@@ -8,37 +8,35 @@
 import Foundation
 
 struct LingoWordSolver {
-    let minimumWordLength = 5
-    let maximumWordLength = 14
+    static let allowedWordLengths = [5, 6, 7, 11, 12, 13]
     
     // TODO: Load each word length in separate array/map entry
     private let candidateLists: [Int: [String]]
     
     init() {
-        let fileName = Bundle.main.path(forResource: "wordlist", ofType: "txt")
-        let contents = try! String(contentsOfFile: fileName!, encoding: String.Encoding.utf8)
-        let lines = contents.components(separatedBy: "\n")
-        candidateLists = Dictionary(uniqueKeysWithValues: (minimumWordLength...maximumWordLength).map { index in
-            (index, lines.filter { line in
-                line.count == index
-            })
+        candidateLists = Dictionary(uniqueKeysWithValues: LingoWordSolver.allowedWordLengths.map { wordLength in
+            let fileName = Bundle.main.path(forResource: String(describing: wordLength), ofType: "txt")
+            let contents = try! String(contentsOfFile: fileName!, encoding: String.Encoding.utf8)
+            let lines = contents.components(separatedBy: "\n")
+            return (wordLength, lines)
         })
     }
     
     func solve(_ word: Word) -> [String] {
-        if let candidates = candidateLists[word.count] {
-            return candidates.filter { candidate in
-                // TODO: Prevent reusing letters
-                candidate.count == word.count
-                    && word.incorrectLetters.allSatisfy { incorrectLetter in !candidate.contains(incorrectLetter) }
-                    && word.unplacedLetters.allSatisfy { unplacedLetter in candidate.contains(unplacedLetter) }
-                    && word.placedLetters.allSatisfy { (letter, index) in
-                        candidate[candidate.index(candidate.startIndex, offsetBy: index)] == letter
-                    }
+        if LingoWordSolver.allowedWordLengths.contains(word.count) {
+            if let candidates = candidateLists[word.count] {
+                return candidates.filter { candidate in
+                    // TODO: Prevent reusing letters
+                    candidate.count == word.count
+                        && word.incorrectLetters.allSatisfy { incorrectLetter in !candidate.contains(incorrectLetter) }
+                        && word.unplacedLetters.allSatisfy { unplacedLetter in candidate.contains(unplacedLetter) }
+                        && word.placedLetters.allSatisfy { (letter, index) in
+                            candidate[candidate.index(candidate.startIndex, offsetBy: index)] == letter
+                        }
+                }
             }
-        } else {
-            return []
         }
+        return []
     }
 }
 
