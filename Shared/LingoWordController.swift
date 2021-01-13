@@ -14,7 +14,7 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     @Published
     var word: [Letter] = [] {
         didSet {
-            answers = solver.solve(word)
+            answers = solver.solve(word: word)
         }
     }
     

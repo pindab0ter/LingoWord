@@ -36,7 +36,7 @@ struct LingoWordView: View {
                 .animation(.easeOut)
                 .padding()
                 List {
-                    if LingoWordSolver.allowedWordLengths.contains(controller.word.count) {
+                    if LingoWordSolver.wordLengths.contains(controller.word.count) {
                         if controller.answers.count > 0 {
                             ForEach(controller.answers) { answer in
                                 Text(answer.uppercased())

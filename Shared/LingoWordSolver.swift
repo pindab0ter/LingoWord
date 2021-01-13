@@ -8,12 +8,14 @@
 import Foundation
 
 struct LingoWordSolver {
-    static let allowedWordLengths = [5, 6, 7, 11, 12, 13]
+    static let regularWordLengths = [5, 6, 7]
+    static let puzzleWordLengths = [11, 12, 13]
+    static let wordLengths = regularWordLengths + puzzleWordLengths
     
     private let candidateLists: [Int: [String]]
     
     init() {
-        candidateLists = Dictionary(uniqueKeysWithValues: LingoWordSolver.allowedWordLengths.map { wordLength in
+        candidateLists = Dictionary(uniqueKeysWithValues: LingoWordSolver.wordLengths.map { wordLength in
             let fileName = Bundle.main.path(forResource: String(describing: wordLength), ofType: "txt")
             let contents = try! String(contentsOfFile: fileName!, encoding: String.Encoding.utf8)
             let lines = contents.components(separatedBy: "\n")
@@ -21,11 +23,17 @@ struct LingoWordSolver {
         })
     }
     
-    func solve(_ word: [Letter]) -> [String] {
-        guard LingoWordSolver.allowedWordLengths.contains(word.count) else {
+    func solve(word: [Letter]) -> [String] {
+        if LingoWordSolver.regularWordLengths.contains(word.count) {
+            return solveRegular(word: word)
+        } else if LingoWordSolver.puzzleWordLengths.contains(word.count) {
+            return solvePuzzle(word: word)
+        } else {
             return []
         }
+    }
 
+    func solveRegular(word: [Letter]) -> [String] {
         let unplacedCharacters = word.unplacedLetters.characters
         let incorrectCharacters = word.incorrectLetters.characters
         return candidateLists[word.count]?.filter { candidate in
@@ -36,7 +44,7 @@ struct LingoWordSolver {
                 case .unplaced:
                     return letter.character != character || unplacedCharacters.reduce(0) { acc, character in
                         letter.character == character ? acc + 1 : 0
-                     } > 1
+                    } > 1
                 case .incorrect:
                     return letter.character != character
                 case .unknown:
@@ -47,6 +55,22 @@ struct LingoWordSolver {
             unplacedCharacters.allAppearOnce(in: Array(candidate)) && incorrectCharacters.allSatisfy { incorrectCharacter in
                 !candidate.contains(incorrectCharacter)
             }
+        } ?? []
+    }
+
+    func solvePuzzle(word: [Letter]) -> [String] {
+        let unplacedCharacters = word.unplacedLetters.characters
+        return candidateLists[word.count]?.filter { candidate in
+            zip(word, candidate).allSatisfy { letter, character in
+                switch letter.status {
+                case .placed:
+                    return letter.character == character
+                case .unplaced, .incorrect, .unknown:
+                    return true
+                }
+            }
+        }.filter { candidate in
+            unplacedCharacters.allAppearOnce(in: Array(candidate))
         } ?? []
     }
 }
