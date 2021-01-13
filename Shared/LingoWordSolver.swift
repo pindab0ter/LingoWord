@@ -36,24 +36,28 @@ struct LingoWordSolver {
     func solveRegular(word: [Letter]) -> [String] {
         let unplacedCharacters = word.unplacedLetters.characters
         let incorrectCharacters = word.incorrectLetters.characters
+        let placedCharacters = word.placedLetters.characters
         return candidateLists[word.count]?.filter { candidate in
             zip(word, candidate).allSatisfy { letter, character in
                 switch letter.status {
-                case .placed:
+                case .placed: // Must be this character in this place
                     return letter.character == character
-                case .unplaced:
-                    return letter.character != character || unplacedCharacters.reduce(0) { acc, character in
-                        letter.character == character ? acc + 1 : 0
-                    } > 1
-                case .incorrect:
+                case .unplaced: // Must be this character but not this place
                     return letter.character != character
-                case .unknown:
+                case .incorrect: // Can not be this character
+                    return letter.character != character
+                case .unknown: // Can be any character
                     return true
                 }
             }
         }.filter { candidate in
-            unplacedCharacters.allAppearOnce(in: Array(candidate)) && incorrectCharacters.allSatisfy { incorrectCharacter in
-                !candidate.contains(incorrectCharacter)
+            // All unplaced characters appear exactly once among non-placed characters
+            // All incorrect characters do not appear among non-placed characters
+            let nonPlacedCharacters = candidate.drop { character in
+                placedCharacters.contains(character) || incorrectCharacters.contains(character)
+            }
+            return unplacedCharacters.allAppearOnce(in: Array(nonPlacedCharacters)) && incorrectCharacters.allSatisfy { incorrectCharacter in
+                !nonPlacedCharacters.contains(incorrectCharacter)
             }
         } ?? []
     }
@@ -63,13 +67,14 @@ struct LingoWordSolver {
         return candidateLists[word.count]?.filter { candidate in
             zip(word, candidate).allSatisfy { letter, character in
                 switch letter.status {
-                case .placed:
+                case .placed: // Must be this character in this place
                     return letter.character == character
-                case .unplaced, .incorrect, .unknown:
+                case .unplaced, .incorrect, .unknown: // Not applicable
                     return true
                 }
             }
         }.filter { candidate in
+            // All unplaced characters appear exactly once
             unplacedCharacters.allAppearOnce(in: Array(candidate))
         } ?? []
     }
