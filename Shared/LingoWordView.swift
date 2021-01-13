@@ -42,10 +42,10 @@ struct LingoWordView: View {
                                 Text(answer.uppercased())
                             }
                         } else {
-                            Text("No answers found.")
+                            Text("Geen woorden gevonden.")
                         }
                     } else {
-                        Text("Words must be 5, 6, 7, 11, 12 or 13 characters, currently \(controller.word.count).")
+                        Text("\(controller.word.count) letter\(controller.word.count != 1 ? "s" : "")")
                     }
                 }
             }
