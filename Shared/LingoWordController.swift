@@ -24,18 +24,14 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     @Published
     var showInput: Bool = true
     
-    func addLetter(_ newCharacter: Character) {
-        guard let character = newCharacter.lowercased().first else {
-            return
-        }
-
-        if word.last?.character == "i" && character == "j" {
+    func add(_ character: Character) {
+        if word.last?.character?.lowercased() == "i" && character.lowercased() == "j" {
             _ = word.removeLast()
-            word.append(Letter(id: nextId(), status: .unplaced, character: "ĳ"))
+            word.append(Letter(id: nextId(), status: character.isUppercase ? .placed : .unplaced, character: "ĳ"))
         } else if character == "." || character == " " {
             word.append(Letter(id: nextId(), status: .unknown))
         } else {
-            word.append(Letter(id: nextId(), status: .unplaced, character: character))
+            word.append(Letter(id: nextId(), status: character.isUppercase ? .placed : .unplaced, character: character))
         }
     }
     
