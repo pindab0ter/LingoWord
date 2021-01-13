@@ -22,23 +22,32 @@ struct LingoWordSolver {
     }
     
     func solve(_ word: [Letter]) -> [String] {
-        if LingoWordSolver.allowedWordLengths.contains(word.count) {
-            if let candidates = candidateLists[word.count] {
-                return candidates.enumerated().filter { index, candidate in
-                    candidate.count == word.count
-                        && word.incorrectLetters.characters.allSatisfy { incorrectLetter in !candidate.contains(incorrectLetter) }
-                        && word.validLetters.characters.allAppearOnce(in: Array(candidate))
-                        && word.placedLetters.allSatisfy { placedLetter in
-                            if let index = word.firstIndex(where: { letter in letter.id == placedLetter.id }) {
-                                return candidate[candidate.index(candidate.startIndex, offsetBy: index)] == placedLetter.character
-                            } else {
-                                return false
-                            }
-                        }
-                }.map { _, element in element }
-            }
+        guard LingoWordSolver.allowedWordLengths.contains(word.count) else {
+            return []
         }
-        return []
+
+        let unplacedCharacters = word.unplacedLetters.characters
+        let incorrectCharacters = word.incorrectLetters.characters
+        return candidateLists[word.count]?.filter { candidate in
+            zip(word, candidate).allSatisfy { letter, character in
+                switch letter.status {
+                case .placed:
+                    return letter.character == character
+                case .unplaced:
+                    return letter.character != character || unplacedCharacters.reduce(0) { acc, character in
+                        letter.character == character ? acc + 1 : 0
+                     } > 1
+                case .incorrect:
+                    return letter.character != character
+                case .unknown:
+                    return true
+                }
+            }
+        }.filter { candidate in
+            unplacedCharacters.allAppearOnce(in: Array(candidate)) && incorrectCharacters.allSatisfy { incorrectCharacter in
+                !candidate.contains(incorrectCharacter)
+            }
+        } ?? []
     }
 }
 
