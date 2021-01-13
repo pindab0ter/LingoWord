@@ -47,6 +47,7 @@ struct LingoTextField : UIViewRepresentable {
         let textField = UITextField()
         textField.returnKeyType = .done
         textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.delegate = context.coordinator
         return textField
     }
