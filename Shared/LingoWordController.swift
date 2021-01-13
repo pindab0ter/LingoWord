@@ -51,8 +51,8 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
     }
 
     func onCharacterEntered(_ character: Character?) {
-        if character?.isLetter == true || character == "." || character == " " {
-            addLetter(character!)
+        if (character?.isLetter == true && character?.isASCII == true) || character == "." || character == " " {
+            add(character!)
         }
     }
     
