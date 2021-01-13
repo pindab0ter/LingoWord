@@ -8,7 +8,7 @@
 import Foundation
 
 struct LingoWordSolver {
-    static let regularWordLengths = [5, 6, 7]
+    static let regularWordLengths = [5, 6, 7, 8]
     static let puzzleWordLengths = [11, 12, 13]
     static let wordLengths = regularWordLengths + puzzleWordLengths
     

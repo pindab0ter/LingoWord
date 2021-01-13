@@ -33,6 +33,8 @@
 		3A7CFFEA25A9B96B008DC8D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */; };
 		3A7CFFEB25A9B96B008DC8D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */; };
 		3A7CFFFF25A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */; };
+		3A96DFC125AF7F19003B494E /* 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A96DFC025AF7F19003B494E /* 8.txt */; };
+		3A96DFC225AF7F19003B494E /* 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A96DFC025AF7F19003B494E /* 8.txt */; };
 		3AC44DAB25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
 		3AC44DAC25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,7 @@
 		3A7CFFCA25A9B96B008DC8D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A7CFFCB25A9B96B008DC8D2 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordSolver.swift; sourceTree = "<group>"; };
+		3A96DFC025AF7F19003B494E /* 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 8.txt; sourceTree = "<group>"; };
 		3AC44DAA25AB071B00934C46 /* LingoWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +97,7 @@
 				3A54B15325ADCA68005DF09F /* 5.txt */,
 				3A54B15125ADCA68005DF09F /* 6.txt */,
 				3A54B14F25ADCA68005DF09F /* 7.txt */,
+				3A96DFC025AF7F19003B494E /* 8.txt */,
 				3A54B15425ADCA68005DF09F /* 11.txt */,
 				3A54B15025ADCA68005DF09F /* 12.txt */,
 				3A54B15225ADCA68005DF09F /* 13.txt */,
@@ -215,6 +219,7 @@
 				3A54B15D25ADCA68005DF09F /* 5.txt in Resources */,
 				3A54B15525ADCA68005DF09F /* 7.txt in Resources */,
 				3A54B15925ADCA68005DF09F /* 6.txt in Resources */,
+				3A96DFC125AF7F19003B494E /* 8.txt in Resources */,
 				3A7C000625A9C0F1008DC8D2 /* wordlist.txt in Resources */,
 				3A7CFFEA25A9B96B008DC8D2 /* Assets.xcassets in Resources */,
 				3A54B15B25ADCA68005DF09F /* 13.txt in Resources */,
@@ -230,6 +235,7 @@
 				3A54B15E25ADCA68005DF09F /* 5.txt in Resources */,
 				3A54B15625ADCA68005DF09F /* 7.txt in Resources */,
 				3A54B15A25ADCA68005DF09F /* 6.txt in Resources */,
+				3A96DFC225AF7F19003B494E /* 8.txt in Resources */,
 				3A7C000725A9C0F1008DC8D2 /* wordlist.txt in Resources */,
 				3A7CFFEB25A9B96B008DC8D2 /* Assets.xcassets in Resources */,
 				3A54B15C25ADCA68005DF09F /* 13.txt in Resources */,
