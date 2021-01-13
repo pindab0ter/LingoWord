@@ -31,22 +31,28 @@ class LingoWordController : ObservableObject, LingoTextFieldDelegate {
         } else if character == "." || character == " " {
             word.append(Letter(id: nextId(), status: .unknown))
         } else {
-            word.append(Letter(id: nextId(), status: character.isUppercase ? .placed : .unplaced, character: character))
+            word.append(Letter(id: nextId(), status: character.isUppercase ? .placed : .unplaced, character: character.lowercased().first!))
         }
     }
     
     func toggleLetter(letter: Letter) {
-        if let index = word.firstIndex(where: { $0.id == letter.id }) {
-            switch letter.status {
-            case .unplaced:
+        guard let index = word.firstIndex(where: { $0.id == letter.id }) else {
+            return
+        }
+        
+        switch letter.status {
+        case .unplaced:
+            word[index].status = .placed
+        case .placed:
+            if LingoWordSolver.puzzleWordLengths.contains(word.count) {
                 word[index].status = .placed
-            case .placed:
+            } else {
                 word[index].status = .incorrect
-            case .incorrect:
-                word[index].status = .unplaced
-            default:
-                break
             }
+        case .incorrect:
+            word[index].status = .unplaced
+        default:
+            break
         }
     }
 
