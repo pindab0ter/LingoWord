@@ -35,6 +35,12 @@
 		3A7CFFFF25A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */; };
 		3A96DFC125AF7F19003B494E /* 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A96DFC025AF7F19003B494E /* 8.txt */; };
 		3A96DFC225AF7F19003B494E /* 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A96DFC025AF7F19003B494E /* 8.txt */; };
+		3A96DFCC25AF80B7003B494E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFCB25AF80B7003B494E /* Helpers.swift */; };
+		3A96DFCD25AF80B7003B494E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFCB25AF80B7003B494E /* Helpers.swift */; };
+		3A96DFD125AF81A8003B494E /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFD025AF81A8003B494E /* LetterView.swift */; };
+		3A96DFD225AF81A8003B494E /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFD025AF81A8003B494E /* LetterView.swift */; };
+		3A96DFDC25AF8225003B494E /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFDB25AF8225003B494E /* Letter.swift */; };
+		3A96DFDD25AF8225003B494E /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DFDB25AF8225003B494E /* Letter.swift */; };
 		3AC44DAB25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
 		3AC44DAC25AB071B00934C46 /* LingoWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC44DAA25AB071B00934C46 /* LingoWordController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +65,9 @@
 		3A7CFFCB25A9B96B008DC8D2 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordSolver.swift; sourceTree = "<group>"; };
 		3A96DFC025AF7F19003B494E /* 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 8.txt; sourceTree = "<group>"; };
+		3A96DFCB25AF80B7003B494E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		3A96DFD025AF81A8003B494E /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
+		3A96DFDB25AF8225003B494E /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		3AC44DAA25AB071B00934C46 /* LingoWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoWordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,21 +102,14 @@
 		3A7CFFB525A9B968008DC8D2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3A7C000525A9C0F1008DC8D2 /* wordlist.txt */,
-				3A54B15325ADCA68005DF09F /* 5.txt */,
-				3A54B15125ADCA68005DF09F /* 6.txt */,
-				3A54B14F25ADCA68005DF09F /* 7.txt */,
-				3A96DFC025AF7F19003B494E /* 8.txt */,
-				3A54B15425ADCA68005DF09F /* 11.txt */,
-				3A54B15025ADCA68005DF09F /* 12.txt */,
-				3A54B15225ADCA68005DF09F /* 13.txt */,
+				3A96DFD825AF81E4003B494E /* Resources */,
+				3A96DFD725AF81D6003B494E /* Controller */,
+				3A96DFD625AF81D2003B494E /* View */,
+				3A96DFD525AF81CE003B494E /* Model */,
 				3A7CFFB825A9B968008DC8D2 /* LingoWordApp.swift */,
 				3A7CFFBB25A9B96B008DC8D2 /* Assets.xcassets */,
 				3A7CFFB625A9B968008DC8D2 /* LingoWord.xcdatamodeld */,
-				3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */,
-				3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */,
-				3AC44DAA25AB071B00934C46 /* LingoWordController.swift */,
-				3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */,
+				3A96DFCB25AF80B7003B494E /* Helpers.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -136,6 +138,48 @@
 				3A7CFFCB25A9B96B008DC8D2 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		3A96DFD525AF81CE003B494E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CFFFE25A9BA37008DC8D2 /* LingoWordSolver.swift */,
+				3A96DFDB25AF8225003B494E /* Letter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A96DFD625AF81D2003B494E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A7C000C25A9D940008DC8D2 /* LingoWordView.swift */,
+				3A1D22DA25ACE5820049ED4E /* LingoTextField.swift */,
+				3A96DFD025AF81A8003B494E /* LetterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A96DFD725AF81D6003B494E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AC44DAA25AB071B00934C46 /* LingoWordController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A96DFD825AF81E4003B494E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A7C000525A9C0F1008DC8D2 /* wordlist.txt */,
+				3A54B15325ADCA68005DF09F /* 5.txt */,
+				3A54B15125ADCA68005DF09F /* 6.txt */,
+				3A54B14F25ADCA68005DF09F /* 7.txt */,
+				3A96DFC025AF7F19003B494E /* 8.txt */,
+				3A54B15425ADCA68005DF09F /* 11.txt */,
+				3A54B15025ADCA68005DF09F /* 12.txt */,
+				3A54B15225ADCA68005DF09F /* 13.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,10 +296,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A7CFFE225A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */,
+				3A96DFCC25AF80B7003B494E /* Helpers.swift in Sources */,
 				3A7C000D25A9D940008DC8D2 /* LingoWordView.swift in Sources */,
+				3A96DFDC25AF8225003B494E /* Letter.swift in Sources */,
 				3A1D22DB25ACE5820049ED4E /* LingoTextField.swift in Sources */,
 				3A7CFFE425A9B96B008DC8D2 /* LingoWordApp.swift in Sources */,
 				3A7CFFFF25A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */,
+				3A96DFD125AF81A8003B494E /* LetterView.swift in Sources */,
 				3AC44DAB25AB071B00934C46 /* LingoWordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,10 +312,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A7CFFE325A9B96B008DC8D2 /* LingoWord.xcdatamodeld in Sources */,
+				3A96DFCD25AF80B7003B494E /* Helpers.swift in Sources */,
 				3A7C000E25A9D940008DC8D2 /* LingoWordView.swift in Sources */,
+				3A96DFDD25AF8225003B494E /* Letter.swift in Sources */,
 				3A1D22DC25ACE5820049ED4E /* LingoTextField.swift in Sources */,
 				3A7CFFE525A9B96B008DC8D2 /* LingoWordApp.swift in Sources */,
 				3A7C000025A9BA37008DC8D2 /* LingoWordSolver.swift in Sources */,
+				3A96DFD225AF81A8003B494E /* LetterView.swift in Sources */,
 				3AC44DAC25AB071B00934C46 /* LingoWordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

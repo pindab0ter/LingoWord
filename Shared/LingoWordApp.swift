@@ -16,5 +16,4 @@ struct LingoWordApp: App {
             LingoWordView(controller: controller)
         }
     }
-
 }
